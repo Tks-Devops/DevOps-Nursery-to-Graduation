@@ -1,5 +1,5 @@
 # DevOps-Nursery-to-Graduation
-<div align="center"> <img src="https://github.com/Tks-Devops/Tks-Devops/blob/main/Tulasi kumar sahu.png"> </div>
+<div align="center"> <img src="https://github.com/Tks-Devops/DevOps-Nursery-to-Graduation/blob/main/python .jpg"> </div>
 **"DevOps: Nursery to Graduation" is a comprehensive guide that takes you on a journey from the very basics to advanced concepts of DevOps. ******
   <h3 align="left" style="color: #673AB7;">Languages and Tools:</h3>
 <p align="left">
