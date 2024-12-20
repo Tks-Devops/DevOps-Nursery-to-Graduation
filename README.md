@@ -108,24 +108,21 @@ Day 29: Scaling DevOpsScale DevOps practices and tools across organizations.
 
 Day 30: DevOps Case StudiesAnalyze real-world success stories and lessons learned.
 
-<h1 align="center" >Have an idea? Let's connect:</h1>
+<h1 align="center">Have an idea? Let's connect:</h1>
 
-<div align="center" gap="20px">
-<a href="https://www.linkedin.com/in/tulasikumarsahu/">
-<img width="70px" src="https://img.shields.io/badge/-%2312100E.svg?&logo=linkedin&logoColor=white" />
-</a>
-
-<a href="https://hashnode.com/@CloudCraft-with-TK">
-<img  width="70px" src="https://img.shields.io/badge/-%2312100E.svg?&logo=hashnoad&logoColor=white" />
-</a>
-
-<a href="https://github.com/Tks-Devops">
-<img  width="70px" src="https://img.shields.io/badge/-%2312100E.svg?&logo=github&logoColor=white" />
-</a>
+<div align="center">
+  <a href="https://www.linkedin.com/in/tulasikumarsahu/">
+    <img width="70px" src="https://img.shields.io/badge/-LinkedIn-%2312100E.svg?&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://hashnode.com/@CloudCraft-with-TK">
+    <img width="70px" src="https://img.shields.io/badge/-Hashnode-%2312100E.svg?&logo=hashnode&logoColor=white" />
+  </a>
+  <a href="https://github.com/Tks-Devops">
+    <img width="70px" src="https://img.shields.io/badge/-GitHub-%2312100E.svg?&logo=github&logoColor=white" />
+  </a>
+  <a href="https://www.youtube.com/@DevOpsAlchemy">
+    <img width="70px" src="https://img.shields.io/badge/-YouTube-%2312100E.svg?&logo=youtube&logoColor=white" />
+  </a>
 </div>
 
-<div align="center" gap="20px">
-<a href="https://www.youtube.com/@DevOpsAlchemy">
-<img  width="70px" src="https://img.shields.io/badge/-%2312100E.svg?&logo=youtube&logoColor=white" />
-</a>
-</div>
+<h3 align="center">Thank you for visiting my project repository! 😊</h3>
