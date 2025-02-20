@@ -34,223 +34,80 @@ Here are some common Maven commands:
 ⦁	mvn site-deploy: Deploys the generated documentation to a remote web server. 
 ⦁	mvn clean: Executes the clean phase, deleting any previous build outputs. 
 
-HANDS ON PARTS :-
+# Maven Workflow for a Spring Boot Project
 
-1. clone the project file from git hub
+## Prerequisites
+Ensure you have the following installed and configured:
+- Java 17 (or required version for your project)
+- Apache Maven
+- A Spring Boot project set up
 
-tksahu@tksahu-Aspire-A515-51G:~$ git clone https://github.com/Tks-Devops/DevOps-Nursery-to-Graduation.git
-Cloning into 'springboot-java-poject'...
-remote: Enumerating objects: 58, done.
-remote: Counting objects: 100% (16/16), done.
-remote: Compressing objects: 100% (10/10), done.
-remote: Total 58 (delta 12), reused 6 (delta 6), pack-reused 42 (from 2)
-Receiving objects: 100% (58/58), 13.01 KiB | 512.00 KiB/s, done.
-Resolving deltas: 100% (15/15), done.
+## Step 1: Verify Maven Installation
+Run the following command to check if Maven is installed:
+```sh
+mvn -version
+```
+This should display the installed Maven version and Java version.
 
-2. check the file is there or not
+## Step 2: Create a Spring Boot Project
+If you haven't already created a project, generate one using:
+```sh
+mvn archetype:generate \
+    -DgroupId=com.example \
+    -DartifactId=my-springboot-app \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DinteractiveMode=false
+```
+Alternatively, you can use [Spring Initializr](https://start.spring.io/) to generate a project.
 
-tksahu@tksahu-Aspire-A515-51G:~$ ls
-clean_up_tools.sh  Downloads  Public                  sudo
-Desktop            Music      snap                    Templates
-Documents          Pictures   springboot-java-poject  Videos
-tksahu@tksahu-Aspire-A515-51G:~$ cd springboot-java-project
+## Step 3: Navigate to the Project Directory
+```sh
+cd my-springboot-app
+```
 
-tksahu@tksahu-Aspire-A515-51G:~$ cd sp*
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ ls
-1,txt  2.txt  3.txt  Jenkinsfile  pom.xml  src  steps.md
+## Step 4: Build the Project
+To compile the project and check for errors, run:
+```sh
+mvn compile
+```
 
-3. validate the file
+## Step 5: Run Tests
+To execute unit tests:
+```sh
+mvn test
+```
 
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ mvn validate
-[INFO] Scanning for projects...
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-parent/2.2.4.RELEASE/spring-boot-starter-parent-2.2.4.RELEASE.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-parent/2.2.4.RELEASE/spring-boot-starter-parent-2.2.4.RELEASE.pom (8.1 kB at 5.1 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.2.4.RELEASE/spring-boot-dependencies-2.2.4.RELEASE.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.2.4.RELEASE/spring-boot-dependencies-2.2.4.RELEASE.pom (127 kB at 850 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.10.2/jackson-bom-2.10.2.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.10.2/jackson-bom-2.10.2.pom (13 kB at 284 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.10/jackson-parent-2.10.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.10/jackson-parent-2.10.pom (8.3 kB at 129 kB/s)
-Downloading from central: https://repo.mav
-aded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-maven-plugin/2.2.4.RELEASE/spring-boot-maven-plugin-2.2.4.RELEASE.jar (69 kB at 1.6 MB/s)
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.425 s
-[INFO] Finished at: 2025-02-19T23:20:29+05:30
-[INFO] ------------------------------------------------------------------------
+## Step 6: Package the Application
+To package the project into a JAR file:
+```sh
+mvn package
+```
+The generated JAR file will be located in the `target/` directory.
 
-4. compile it
+## Step 7: Run the Spring Boot Application
+Execute the JAR file using:
+```sh
+java -jar target/my-springboot-app-1.0-SNAPSHOT.jar
+```
 
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ mvn compile
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------------< com.abhishek:spring-boot-demo >--------------------
-[INFO] Building spring-boot-demo 1.0
-[INFO] --------------------------------[ jar ]---------------------------------
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/3.1.0/maven-resources-plugin-3.1.0.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/3.1.0/maven-resources-plugin-3.1.0.pom (7.2 kB at 9.4 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/31/maven-plugins-31.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/31/maven-plugins-31.pom (10 kB at 77 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/31/maven-parent-31.pom
-Downloaded f[INFO] Changes detected – recom check piling the module!
-[INFO] Compiling 1 source file to /home/tksahu/springboot-java-poject/target/classes
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  43.161 s
-[INFO] Finished at: 2025-02-19T23:21:27+05:30
-[INFO] ------------------------------------------------------------------------rom central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/31/maven-parent-31.pom (43 kB at 203 kB/s)
+## Step 8: Clean the Project (Optional)
+To remove compiled files and reset the build:
+```sh
+mvn clean
+```
 
-5. check the target folder
+## Step 9: Install the Artifact Locally
+To install the JAR file into the local Maven repository:
+```sh
+mvn install
+```
 
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ ls
-1,txt  2.txt  3.txt  Jenkinsfile  pom.xml  src  steps.md  target
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ cd target
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject/target$ ls
-classes  generated-sources  maven-status
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject/target$ cd ..
+## Step 10: Deploy to a Remote Repository (Optional)
+If deploying to a repository like Nexus or Artifactory, configure your `pom.xml` and use:
+```sh
+mvn deploy
+```
 
-6. test it
+## Conclusion
+This workflow covers the essential Maven commands for building, testing, packaging, and running a Spring Boot project. You can extend this process with additional plugins and configurations based on your project requirements.
 
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ mvn test
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------------< com.abhishek:spring-boot-demo >--------------------
-[INFO] Building spring-boot-demo 1.0
-[INFO] --------------------------------[ jar ]---------------------------------
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.22.2/maven-surefire-plugin-2.22.2.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.22.2/maven-surefire-plugin-2.22.2.pom (5.0 kB at 7.3 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire/2.22.2/surefire-2.22.2.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire/2.22.2/surefire-2.22.2.pom (26 kB at 331 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom (44 kB at 724 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.22.2/maven-surefire-plugin-2.22.2.jar
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.22.2/maven-surefire-plugin-2.22.2.jar (41 kB at 764 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/1.25/snakeyaml-1.25.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-test/2.2.4.RELEASE/spring-boot-starter-test-2.2.4.RELEASE.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test/2.2.4.RELEASE/spring-boot-test-2.2.4.RELEASE.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test-autoconfigure/2.2.4.RELEASE/spring-boot-test-autoconfigure-2.2.4.RELEASE.jar
-Downloading from central: https://repo.maven.apache.org/maven2/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar
-Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-test/2.2.4.RELEASE/spring-boot-starter-test-2.2.4.RELEASE.jar (402 B at 3.5 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/net/minidev/json-smart/2.3/json-smart-2.3.jar
-Downloaded from central: https://repo.maven.apache.org/maven2/com/thoughtworks/qdox/qdox/2.0-M8/qdox-2.0-M8.jar (316 kB at 400 kB/s)
-[INFO] No tests to run.
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  7.221 s
-[INFO] Finished at: 2025-02-19T23:22:13+05:30
-[INFO] ------------------------------------------------------------------------
-
-
-7. check with package
-
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ mvn package
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------------< com.abhishek:spring-boot-demo >--------------------
-[INFO] Building spring-boot-demo 1.0
-[INFO] --------------------------------[ jar ]---------------------------------
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.1.2/maven-jar-plugin-3.1.2.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.1.2/maven-jar-plugin-3.1.2.pom (7.3 kB at 13 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/33/maven-plugins-33.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/33/maven-plugins-33.pom (11 kB at 157 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.1.2/maven-jar-plugin-3.1.2.jar
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.1.2/maven-jar-plugin-3.1.2.jar (28 kB at 527 kB/s)
-[INFO] 
-[INFO] Replacing main artifact with repackaged archive
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.007 s
-[INFO] Finished at: 2025-02-19T23:25:16+05:30
-[INFO] ------------------------------------------------------------------------
-
-8. check the jar file in target folder
-
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ ls
-1,txt  2.txt  3.txt  Jenkinsfile  pom.xml  src  steps.md  target
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ cd target
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject/target$ ls
-classes            maven-archiver  spring-boot-web.jar
-generated-sources  maven-status    spring-boot-web.jar.original
-
-9 this debug part 
-
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject/target$ mvn install
-[INFO] Scanning for projects...
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  0.103 s
-[INFO] Finished at: 2025-02-19T23:26:27+05:30
-[INFO] ------------------------------------------------------------------------
-[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (/home/tksahu/springboot-java-poject/target). Please verify you invoked Maven from the correct directory. -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MissingProjectException
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject/target$ cd ..
-
--------why build is not happening because we are inside the target folder so src file will not present . With out src mvn install cmd will wont work
-
-10. first need to back from target
-
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject/target$ cd ..
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ mvn install
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------------< com.abhishek:spring-boot-demo >--------------------
-[INFO] Building spring-boot-demo 1.0
-[INFO] --------------------------------[ jar ]---------------------------------
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.pom (6.4 kB at 6.1 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom (9.6 kB at 162 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/24/maven-parent-24.pom
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.181 s
-[INFO] Finished at: 2025-02-19T23:33:41+05:30
-[INFO] -----------------------------------------------------------------------
-
-11. after all build test comple all part finisheed then run the jar file .
-tksahu@tksahu-Aspire-A515-51G:~/springboot-java-poject$ java -jar target/spring-boot-web.jar
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::        (v2.2.4.RELEASE)
-
-2025-02-19 23:35:01.244  INFO 24507 --- [           main] com.abhishek.StartApplication            : Starting StartApplication v1.0 on tksahu-Aspire-A515-51G with PID 24507 (/home/tksahu/springboot-java-poject/target/spring-boot-web.jar started by tksahu in /home/tksahu/springboot-java-poject)
-2025-02-19 23:35:01.249  INFO 24507 --- [           main] com.abhishek.StartApplication            : No active profile set, falling back to default profiles: default
-2025-02-19 23:35:03.173  INFO 24507 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2025-02-19 23:35:03.194  INFO 24507 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-02-19 23:35:03.195  INFO 24507 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2025-02-19 23:35:03.301  INFO 24507 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-02-19 23:35:03.301  INFO 24507 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1905 ms
-2025-02-19 23:35:03.596  INFO 24507 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2025-02-19 23:35:03.693  INFO 24507 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2025-02-19 23:35:03.907  INFO 24507 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2025-02-19 23:35:03.915  INFO 24507 --- [           main] com.abhishek.StartApplication            : Started StartApplication in 3.539 seconds (JVM running for 4.295)
-2025-02-19 23:36:32.108  INFO 24507 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-02-19 23:36:32.108  INFO 24507 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-02-19 23:36:32.117  INFO 24507 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-^C2025-02-19 23:37:22.765  INFO 24507 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-
-
-
-
-
-
-
-
-
- 
